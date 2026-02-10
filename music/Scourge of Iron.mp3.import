@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://08huentg0cjw"
+path="res://.godot/imported/Scourge of Iron.mp3-1fb2053867f1384d41e628dbb4801d2a.mp3str"
+
+[deps]
+
+source_file="res://music/Scourge of Iron.mp3"
+dest_files=["res://.godot/imported/Scourge of Iron.mp3-1fb2053867f1384d41e628dbb4801d2a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
