@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="JuegoDoom"
-run/main_scene="uid://bbw0lu86wgjon"
+run/main_scene="uid://b0684rnfiann2"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

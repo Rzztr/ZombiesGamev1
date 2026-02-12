@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bbw0lu86wgjon"]
+[gd_scene load_steps=20 format=3 uid="uid://suvieum7u242"]
 
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://dbkjpwt2advv1" path="res://audio_stream_player.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_6qbpe"]
+[ext_resource type="Script" uid="uid://dbkjpwt2advv1" path="res://scenes/audio_stream_player.gd" id="2_yblv8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -63,7 +63,7 @@ emission = Color(0.79442734, 0.6100152, 0, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h2yge")
 
-[node name="ProtoController" parent="." instance=ExtResource("1_ig7tw")]
+[node name="ProtoController" parent="." instance=ExtResource("1_6qbpe")]
 transform = Transform3D(2.3000002, 0, 0, 0, 2.1120002, 0, 0, 0, 2.8000002, -1.2, -0.4, -3.3)
 floor_constant_speed = true
 floor_max_angle = 0.88313663
@@ -89,16 +89,16 @@ height = 1.7
 sides = 32
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/mainWall"]
-transform = Transform3D(2.0257497, -0.2101143, 2.5863239e-08, 0, -5.289078e-08, -3.40736, 0.35719433, 1.1916174, -1.466777e-07, 9.299999, -2.8000002, 0.049999237)
+transform = Transform3D(2.0385346, -0.16176754, 1.9912179e-08, 0, -5.2890787e-08, -3.4073606, 0.2750048, 1.1991379, -1.4760342e-07, 9.299999, -2.8000002, -0.0015068054)
 operation = 2
-radius = 1.6
+radius = 1.7543945
 height = 1.7
 sides = 32
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D/mainWall"]
-transform = Transform3D(2.0257497, 0.2101143, -2.5863239e-08, 0, -5.289078e-08, -3.40736, -0.35719433, 1.1916174, -1.466777e-07, -11.299999, -2.8000002, 0.049999237)
+transform = Transform3D(2.033754, 0.1813972, -2.2328415e-08, 0, -5.2890783e-08, -3.4073603, -0.30837515, 1.1963258, -1.4725725e-07, -11.299999, -2.8000002, -0.05441475)
 operation = 2
-radius = 1.6
+radius = 1.6171875
 height = 1.7
 sides = 32
 
@@ -826,7 +826,7 @@ radius = 0.27649808
 material = SubResource("ORMMaterial3D_dg77c")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-script = ExtResource("3_h2yge")
+script = ExtResource("2_yblv8")
 
 [node name="warehouse" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.59403, 4.6664934, -72.07126)
