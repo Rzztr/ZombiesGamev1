@@ -1,7 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://suvieum7u242"]
+[gd_scene load_steps=25 format=3 uid="uid://suvieum7u242"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_6qbpe"]
 [ext_resource type="Script" uid="uid://dbkjpwt2advv1" path="res://scenes/audio_stream_player.gd" id="2_yblv8"]
+[ext_resource type="PackedScene" uid="uid://ccjxn54beod75" path="res://assets/guns/AssaultRifle_02.glb" id="3_3x45c"]
+[ext_resource type="PackedScene" uid="uid://6ojxs7hdorli" path="res://assets/guns/AssaultRifle_01.glb" id="4_ihmcd"]
+[ext_resource type="PackedScene" uid="uid://coap1opori81g" path="res://assets/guns/Shotgun_01.glb" id="5_nd44g"]
+[ext_resource type="PackedScene" uid="uid://cwd1cmm4g2lkq" path="res://assets/guns/SubmachineGun_02.glb" id="6_1h140"]
+[ext_resource type="PackedScene" uid="uid://qrl348nivro4" path="res://assets/guns/AssaultRifleAmmo_Box.glb" id="7_7tuds"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -725,7 +730,7 @@ sides = 16
 material = SubResource("ORMMaterial3D_4c57u")
 
 [node name="lightStage1" type="CSGPolygon3D" parent="CSGCombiner3D/stage"]
-transform = Transform3D(0.0341494, 0, 0.99941677, 0, 1, 0, -0.99941677, 0, 0.0341494, -2.9366293, 0.64309335, 8.409088)
+transform = Transform3D(0.0341494, 0, 0.99941677, 0, 1, 0, -0.99941677, 0, 0.0341494, -2.9366302, 0.64309335, 8.140167)
 polygon = PackedVector2Array(0, 0, 0.20267802, 0.6936374, 1, 0)
 depth = 0.91
 material = SubResource("ORMMaterial3D_efxa6")
@@ -737,18 +742,18 @@ calculate_tangents = false
 polygon = PackedVector2Array(-0.110569, 0.12194872, 0.07360411, 0.5496917, 0.581414, 0.40835857, 0.52194405, -0.043427944)
 depth = 0.63
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CSGCombiner3D/stage/lightStage1"]
-transform = Transform3D(0.017988546, -0.4904351, -0.87129205, -0.009103712, 0.8713166, -0.49063677, 0.9997966, 0.016757838, 0.011208942, 0.57431793, 0.31089592, -0.45804453)
-light_energy = 0.265
-light_indirect_energy = 3.804
-light_volumetric_fog_energy = 5.618
-shadow_enabled = true
-sky_mode = 1
-
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/stage/lightStage1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40490723, 0.09819019, -0.4804945)
 radius = 0.27649808
 material = SubResource("ORMMaterial3D_dg77c")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D/stage/lightStage1"]
+transform = Transform3D(1.000262, 0, 0.020662751, 0, 1, 0, 0, 0, 1.3470688, 0.6258049, 0.40374017, -0.38901043)
+light_color = Color(0.91, 0.71283334, 0, 1)
+light_energy = 5.948
+light_indirect_energy = 2.07
+light_volumetric_fog_energy = 9.907
+shadow_enabled = true
 
 [node name="lightStage2" type="CSGPolygon3D" parent="CSGCombiner3D/stage"]
 transform = Transform3D(0.4152332, 0, 0.90971524, 0, 1, 0, -0.90971506, 0, 0.4152331, -1.0604368, 0.6332766, 8.409088)
@@ -763,17 +768,18 @@ calculate_tangents = false
 polygon = PackedVector2Array(-0.110569, 0.12194872, 0.07360411, 0.5496917, 0.581414, 0.40835857, 0.52194405, -0.043427944)
 depth = 0.63
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CSGCombiner3D/stage/lightStage2"]
-transform = Transform3D(0.017988546, -0.4904351, -0.87129205, -0.009103712, 0.8713166, -0.49063677, 0.9997966, 0.016757838, 0.011208942, 0.57431793, 0.31089592, -0.45804453)
-light_energy = 0.265
-light_indirect_energy = 3.804
-light_volumetric_fog_energy = 5.618
-sky_mode = 1
-
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/stage/lightStage2"]
 transform = Transform3D(0.95727915, 0, 0.28916538, 0, 1, 0, -0.2891654, 0, 0.9572791, 0.40490723, 0.09819019, -0.48049545)
 radius = 0.27649808
 material = SubResource("ORMMaterial3D_dg77c")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D/stage/lightStage2"]
+transform = Transform3D(1.000262, 0, 0.020662751, 0, 1, 0, 0, 0, 1.3470688, 0.6258049, 0.40374017, -0.38901043)
+light_color = Color(0.91, 0.71283334, 0, 1)
+light_energy = 5.948
+light_indirect_energy = 2.07
+light_volumetric_fog_energy = 9.907
+shadow_enabled = true
 
 [node name="lightStage3" type="CSGPolygon3D" parent="CSGCombiner3D/stage"]
 transform = Transform3D(0.0341494, 0, 0.99941677, 0, 1, 0, -0.99941677, 0, 0.0341494, 7.0501776, 0.64536643, 8.409088)
@@ -788,17 +794,18 @@ calculate_tangents = false
 polygon = PackedVector2Array(-0.110569, 0.12194872, 0.07360411, 0.5496917, 0.581414, 0.40835857, 0.52194405, -0.043427944)
 depth = 0.63
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CSGCombiner3D/stage/lightStage3"]
-transform = Transform3D(0.017988546, -0.4904351, -0.87129205, -0.009103712, 0.8713166, -0.49063677, 0.9997966, 0.016757838, 0.011208942, 0.57431793, 0.31089592, -0.45804453)
-light_energy = 0.265
-light_indirect_energy = 3.804
-light_volumetric_fog_energy = 5.618
-sky_mode = 1
-
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/stage/lightStage3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40490723, 0.09819019, -0.4804945)
 radius = 0.27649808
 material = SubResource("ORMMaterial3D_dg77c")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D/stage/lightStage3"]
+transform = Transform3D(1.000262, 0, 0.020662751, 0, 1, 0, 0, 0, 1.3470688, 0.6258049, 0.40374017, -0.38901043)
+light_color = Color(0.91, 0.71283334, 0, 1)
+light_energy = 5.948
+light_indirect_energy = 2.07
+light_volumetric_fog_energy = 9.907
+shadow_enabled = true
 
 [node name="lightStage4" type="CSGPolygon3D" parent="CSGCombiner3D/stage"]
 transform = Transform3D(-0.74182373, 0, 0.67059493, 0, 1, 0, -0.6705949, 0, -0.7418237, 4.553212, 0.6229043, 7.7241707)
@@ -813,17 +820,18 @@ calculate_tangents = false
 polygon = PackedVector2Array(-0.110569, 0.12194872, 0.07360411, 0.5496917, 0.581414, 0.40835857, 0.52194405, -0.043427944)
 depth = 0.63
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CSGCombiner3D/stage/lightStage4"]
-transform = Transform3D(0.017988546, -0.4904351, -0.87129205, -0.009103712, 0.8713166, -0.49063677, 0.9997966, 0.016757838, 0.011208942, 0.57431793, 0.31089592, -0.45804453)
-light_energy = 0.265
-light_indirect_energy = 3.804
-light_volumetric_fog_energy = 5.618
-sky_mode = 1
-
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D/stage/lightStage4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40490723, 0.09819019, -0.4804945)
 radius = 0.27649808
 material = SubResource("ORMMaterial3D_dg77c")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D/stage/lightStage4"]
+transform = Transform3D(1.000262, 0, 0.020662751, 0, 1, 0, 0, 0, 1.3470688, 0.6258049, 0.40374017, -0.38901043)
+light_color = Color(0.91, 0.71283334, 0, 1)
+light_energy = 5.948
+light_indirect_energy = 2.07
+light_volumetric_fog_energy = 9.907
+shadow_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("2_yblv8")
@@ -842,3 +850,18 @@ size = Vector3(12.631767, 9.614532, 15.095779)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1832714, -2.784871, -0.6373291)
 operation = 2
 size = Vector3(3.0151367, 4.2194824, 2.7040138)
+
+[node name="AssaultRifle_02" parent="." instance=ExtResource("3_3x45c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.82779, 4.107921, -22.644335)
+
+[node name="AssaultRifle_01" parent="." instance=ExtResource("4_ihmcd")]
+transform = Transform3D(-0.0031416267, 0, 0.9999951, 0, 1, 0, -0.9999951, 0, -0.0031416267, 39.842422, 4.555953, -79.65001)
+
+[node name="Shotgun_012" parent="." instance=ExtResource("5_nd44g")]
+transform = Transform3D(-0.012565985, 0, 0.99992114, 0, 1, 0, -0.99992114, 0, -0.012565985, 48.245617, 4.0496297, 2.769871)
+
+[node name="SubmachineGun_02" parent="." instance=ExtResource("6_1h140")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.97937, 4.177744, -75.429085)
+
+[node name="AssaultRifleAmmo_Box2" parent="." instance=ExtResource("7_7tuds")]
+transform = Transform3D(0.05184788, 0, -0.998655, 0, 1, 0, 0.998655, 0, 0.05184788, -6.946738, 2.9115295, -63.185066)
