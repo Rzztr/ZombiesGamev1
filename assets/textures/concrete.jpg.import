@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfyo4ebnf3pek"
-path.s3tc="res://.godot/imported/face_nor.jpg-80cdde8fa5c2ad3fe75b9f5861868b4c.s3tc.ctex"
+uid="uid://tr00i4ajsdo7"
+path.s3tc="res://.godot/imported/concrete.jpg-e8d4555f43544ccccb83b2bc4870a9bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/envorimentsHouse/textures/face_nor.jpg"
-dest_files=["res://.godot/imported/face_nor.jpg-80cdde8fa5c2ad3fe75b9f5861868b4c.s3tc.ctex"]
+source_file="res://assets/textures/concrete.jpg"
+dest_files=["res://.godot/imported/concrete.jpg-e8d4555f43544ccccb83b2bc4870a9bd.s3tc.ctex"]
 
 [params]
 

@@ -1,12 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://suvieum7u242"]
+[gd_scene load_steps=35 format=3 uid="uid://suvieum7u242"]
 
+[ext_resource type="Script" uid="uid://df42xv4xjwmgb" path="res://scenes/zombieRound.gd" id="1_1h140"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_6qbpe"]
 [ext_resource type="Script" uid="uid://dbkjpwt2advv1" path="res://scenes/audio_stream_player.gd" id="2_yblv8"]
 [ext_resource type="PackedScene" uid="uid://ccjxn54beod75" path="res://assets/guns/AssaultRifle_02.glb" id="3_3x45c"]
+[ext_resource type="Texture2D" uid="uid://tr00i4ajsdo7" path="res://assets/textures/concrete.jpg" id="3_nd44g"]
 [ext_resource type="PackedScene" uid="uid://6ojxs7hdorli" path="res://assets/guns/AssaultRifle_01.glb" id="4_ihmcd"]
 [ext_resource type="PackedScene" uid="uid://coap1opori81g" path="res://assets/guns/Shotgun_01.glb" id="5_nd44g"]
 [ext_resource type="PackedScene" uid="uid://cwd1cmm4g2lkq" path="res://assets/guns/SubmachineGun_02.glb" id="6_1h140"]
 [ext_resource type="PackedScene" uid="uid://qrl348nivro4" path="res://assets/guns/AssaultRifleAmmo_Box.glb" id="7_7tuds"]
+[ext_resource type="PackedScene" uid="uid://cames51iqry5q" path="res://assets/envorimentsHouse/WoolCarpet1.blend" id="8_ihmcd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,6 +29,16 @@ albedo_color = Color(1, 0.3019608, 0.3019608, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.9584151, 0.66377854, 0.4132796, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1h140"]
+transparency = 4
+blend_mode = 4
+cull_mode = 1
+albedo_texture = ExtResource("3_nd44g")
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7tuds"]
+albedo_texture = ExtResource("3_nd44g")
+
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ig7tw"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0xm2m"]
@@ -37,8 +50,20 @@ albedo_color = Color(1, 1, 0.56078434, 1)
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_1bvp3"]
 albedo_color = Color(0.627451, 0.34901962, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5k3v"]
+albedo_texture = ExtResource("3_nd44g")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsnpn"]
+albedo_texture = ExtResource("3_nd44g")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdfhp"]
+albedo_texture = ExtResource("3_nd44g")
+
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lquwl"]
 albedo_color = Color(1, 1, 0.56078434, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa1ut"]
+albedo_texture = ExtResource("3_nd44g")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7mycd"]
 albedo_color = Color(0.83275986, 0.4289972, 5.7756904e-07, 1)
@@ -63,7 +88,11 @@ albedo_color = Color(0.8665466, 0.680986, 0.2236166, 1)
 emission_enabled = true
 emission = Color(0.79442734, 0.6100152, 0, 1)
 
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_nd44g"]
+albedo_color = Color(0.52156866, 0.40392157, 0.19215687, 1)
+
 [node name="main" type="Node3D"]
+script = ExtResource("1_1h140")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h2yge")
@@ -73,17 +102,17 @@ transform = Transform3D(2.3000002, 0, 0, 0, 2.1120002, 0, 0, 0, 2.8000002, -1.2,
 floor_constant_speed = true
 floor_max_angle = 0.88313663
 look_speed = 0.001
-base_speed = 20.0
+base_speed = 15.0
 jump_velocity = 5.0
-sprint_speed = 25.0
+sprint_speed = 17.0
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, -0.4, -3.3)
 use_collision = true
 
 [node name="mainWall" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.749999, 5.35, -14.2)
-size = Vector3(61.9, 10.900001, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4329481, 5.35, -14.2)
+size = Vector3(55.534107, 10.900001, 1)
 material = SubResource("StandardMaterial3D_ig7tw")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/mainWall"]
@@ -108,15 +137,19 @@ height = 1.7
 sides = 32
 
 [node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.850002, -0.049999923, -32.981873)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.42883, -0.049999923, -32.981873)
 use_collision = true
-size = Vector3(126.5, 0.5, 88.83626)
+size = Vector3(97.65765, 0.5, 88.83626)
 material = SubResource("StandardMaterial3D_0xm2m")
 
+[node name="WoolCarpet12" parent="CSGCombiner3D/Floor" instance=ExtResource("8_ihmcd")]
+transform = Transform3D(16.506979, 0, 0, 0, 1, 0, 0, 0, 40.81583, -21.046337, 0.26247746, -0.014579773)
+
 [node name="leftWall" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -28.400002, 5.3999996, -33.177395)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -28.422647, 5.4725404, -33.03407)
 use_collision = true
 size = Vector3(10.900001, 0.5, 89.14522)
+material = SubResource("StandardMaterial3D_1h140")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/leftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3157079, -0.22789383, 32.97323)
@@ -129,9 +162,10 @@ operation = 2
 size = Vector3(3.6314087, 1.164917, 2.4884949)
 
 [node name="outsideWall" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 49.800007, 5.3999987, -33.184963)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 39.977768, 5.3999987, -33.184963)
 use_collision = true
 size = Vector3(10.7, 0.6, 89.13008)
+material = SubResource("StandardMaterial3D_7tuds")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D/outsideWall"]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.700001, -0.09999466, 30.200008)
@@ -158,25 +192,34 @@ height = 7.5218754
 sides = 32
 material = SubResource("ORMMaterial3D_1bvp3")
 
+[node name="Shotgun_012" parent="CSGCombiner3D/outsideWall" instance=ExtResource("5_nd44g")]
+transform = Transform3D(5.492767e-10, 1, -4.3707942e-08, 0.012565985, -4.371139e-08, -0.99992114, -0.99992114, 0, -0.012565985, -0.9503689, 0.38791275, 39.254833)
+
 [node name="frontWall" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 34.646587, 5.4999995, -77.15)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 20.25048, 5.499999, -77.15)
 use_collision = true
-size = Vector3(10.7, 126.60885, 1.5)
+size = Vector3(10.7, 97.816635, 1.5)
+material = SubResource("StandardMaterial3D_h5k3v")
+
+[node name="AssaultRifle_01" parent="CSGCombiner3D/frontWall" instance=ExtResource("4_ihmcd")]
+transform = Transform3D(1.3732486e-10, 1, -4.3711175e-08, 0.0031416267, -4.371139e-08, -0.9999951, -0.9999951, 0, -0.0031416267, -0.5440464, 0.91782, 0.7999954)
 
 [node name="backWall" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1.3113416e-07, 1, 0, -1, 1.3113416e-07, 0, 0, 0, 1, 34.951008, 5.1010075, 10.991554)
+transform = Transform3D(1.3113416e-07, 1, 0, -1, 1.3113416e-07, 0, 0, 0, 1, 20.537483, 5.1010056, 10.991554)
 use_collision = true
-size = Vector3(11.2, 126.200005, 0.7831055)
+size = Vector3(11.2, 97.372955, 0.7831055)
+material = SubResource("StandardMaterial3D_jsnpn")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/backWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48385572, 5.362118, -0.0071411133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48385668, 13.178894, -2.6377983)
 operation = 2
-size = Vector3(5.132965, 4.0061646, 2.9119024)
+size = Vector3(5.132965, 4.0061646, 7.6956973)
 
 [node name="rightWall" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1.6391276e-07, 0.9999999, 0, -0.9999999, 1.6391276e-07, 0, 0, 0, 1, 33.450005, 5.2999973, -33.260006)
+transform = Transform3D(1.6391276e-07, 0.9999999, 0, -0.9999999, 1.6391276e-07, 0, 0, 0, 1, 27.151276, 5.2999973, -33.260006)
 use_collision = true
 size = Vector3(10.900001, 0.5, 89.18001)
+material = SubResource("StandardMaterial3D_rdfhp")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D/rightWall"]
 transform = Transform3D(-4.3711395e-08, -1, 0, 1, -4.3711395e-08, 0, 0, 0, 1, 3.610942, 0.12812424, -26.199993)
@@ -203,17 +246,24 @@ height = 8.025976
 sides = 32
 material = SubResource("ORMMaterial3D_1bvp3")
 
+[node name="AssaultRifle_02" parent="CSGCombiner3D/rightWall" instance=ExtResource("3_3x45c")]
+transform = Transform3D(1.6391283e-07, -1.0000001, 0, 1.0000001, 1.6391283e-07, 0, 0, 0, 1, 0.7920761, -0.658371, 13.91567)
+
 [node name="backyrdWall" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-1.4901161e-07, -0.99999994, 0, 0.99999994, -1.4901161e-07, 0, 0, 0, 1, 97.75001, 5.400004, -33.097816)
+transform = Transform3D(-1.4901161e-07, -0.99999994, 0, 0.99999994, -1.4901161e-07, 0, 0, 0, 1, 69.022415, 5.400004, -33.097816)
 use_collision = true
 size = Vector3(10.7, 0.6, 88.90437)
+material = SubResource("StandardMaterial3D_fa1ut")
+
+[node name="SubmachineGun_02" parent="CSGCombiner3D/backyrdWall" instance=ExtResource("6_1h140")]
+transform = Transform3D(-1.4901163e-07, 1, 0, -1, -1.4901163e-07, 0, 0, 0, 1, -0.8222599, 0.57064056, -39.03127)
 
 [node name="roof" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.4099994, 0, 8.742278e-08, 0, 1, 0, -3.8553438e-07, 0, -1, 10.851504, 10.400001, -33.202198)
-size = Vector3(17.800001, 1, 89.15145)
+transform = Transform3D(-4.4099994, 0, 8.742278e-08, 0, 1, 0, -3.8553438e-07, 0, -1, 5.9286356, 10.400001, -33.202198)
+size = Vector3(15.567408, 1, 89.15145)
 
 [node name="stage" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.74215806, 0, 0, 0, 1, 0, 0, 0, 1, 8.249832, 0.8471395, -67.37184)
+transform = Transform3D(0.74215806, 0, 0, 0, 1, 0, 0, 0, 1, 5.7978163, 0.8471395, -67.37184)
 size = Vector3(41.351376, 1.3317261, 18.103027)
 material = SubResource("ORMMaterial3D_7mycd")
 
@@ -833,35 +883,24 @@ light_indirect_energy = 2.07
 light_volumetric_fog_energy = 9.907
 shadow_enabled = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-script = ExtResource("2_yblv8")
+[node name="AssaultRifleAmmo_Box2" parent="CSGCombiner3D/stage" instance=ExtResource("7_7tuds")]
+transform = Transform3D(0.069860965, 0, -1.3456097, 0, 1, 0, 0.998655, 0, 0.05184788, -19.388432, 2.46439, 7.4867783)
 
-[node name="warehouse" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.59403, 4.6664934, -72.07126)
+[node name="warehouse" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.39403, 5.0664935, -68.771255)
 use_collision = true
 size = Vector3(13.436523, 9.773499, 16.693604)
+material = SubResource("ORMMaterial3D_nd44g")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="warehouse"]
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/warehouse"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2378807, -0.27882385, -0.08353424)
 operation = 2
 size = Vector3(12.631767, 9.614532, 15.095779)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="warehouse"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/warehouse"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1832714, -2.784871, -0.6373291)
 operation = 2
 size = Vector3(3.0151367, 4.2194824, 2.7040138)
 
-[node name="AssaultRifle_02" parent="." instance=ExtResource("3_3x45c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.82779, 4.107921, -22.644335)
-
-[node name="AssaultRifle_01" parent="." instance=ExtResource("4_ihmcd")]
-transform = Transform3D(-0.0031416267, 0, 0.9999951, 0, 1, 0, -0.9999951, 0, -0.0031416267, 39.842422, 4.555953, -79.65001)
-
-[node name="Shotgun_012" parent="." instance=ExtResource("5_nd44g")]
-transform = Transform3D(-0.012565985, 0, 0.99992114, 0, 1, 0, -0.99992114, 0, -0.012565985, 48.245617, 4.0496297, 2.769871)
-
-[node name="SubmachineGun_02" parent="." instance=ExtResource("6_1h140")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.97937, 4.177744, -75.429085)
-
-[node name="AssaultRifleAmmo_Box2" parent="." instance=ExtResource("7_7tuds")]
-transform = Transform3D(0.05184788, 0, -0.998655, 0, 1, 0, 0.998655, 0, 0.05184788, -6.946738, 2.9115295, -63.185066)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_yblv8")
